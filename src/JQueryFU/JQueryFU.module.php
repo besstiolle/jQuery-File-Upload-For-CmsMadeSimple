@@ -22,7 +22,7 @@ class JQueryFU extends CMSModule
   
   function GetVersion()
   {
-    return '1.0.0';
+    return '1.0.1';
   }
   
   function GetDependencies()
@@ -57,12 +57,12 @@ class JQueryFU extends CMSModule
   
   function HasAdmin()
   {
-    return true;
+    return false;
   }
 
   function GetAdminSection()
   {
-    return 'extension';
+    return 'extensions';
   }
   
   function GetAdminDescription()
@@ -112,7 +112,7 @@ class JQueryFU extends CMSModule
   
   	function AllowSmartyCaching()
 	{
-	  return TRUE;
+	  return FALSE;
 	}
 
 	function LazyLoadFrontend()
