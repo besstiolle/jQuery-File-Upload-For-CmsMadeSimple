@@ -16,16 +16,16 @@ Exemple of use :
 
 List of parameters
 --------------------------------------
-- (optional) ###accept_file_types###="'/\.(txt|gif|jpe?g|png)$/i'" - Regex of the files extensions that are allowed.
-- (optional) ###number###="99999" - Number of files that can be in the uploads directory at the same time
-- (optional) ###max_width###="0" - The max width for the images uploaded. Exemple : max_width=150
-- (optional) ###max_height###="0" - The max_height for the images uploaded. Exemple : max_height=150
-- (optional) ###min_width###="0" - The min width for the images uploaded. Exemple : min_width=150. By Default : min_width=0
-- (optional) ###min_height###="0" - The min height for the images uploaded. Exemple : min_height=150. By Default : min_height=0
-- (optional) ###clean_name###="true" - if true, will replace accents, spaces and other spacials caracters by some more clean
-- (optional) ###dir_path###="/uploads/jqueryfu" - the directory used to upload files. Be carefull, use "/" or "\" into Unix or Windows system
-- (optional) ###dir_url###="/uploads/jqueryfu" - the url used to display uploaded files
-- (optional) ###template###="full" - The name of the template. Are allowed : "full", "basic" and all the templates into the "/modules/JQueryFU/templates" directory
+- (optional) accept_file_types="'/\.(txt|gif|jpe?g|png)$/i'" - Regex of the files extensions that are allowed.
+- (optional) number="99999" - Number of files that can be in the uploads directory at the same time
+- (optional) max_width="0" - The max width for the images uploaded. Exemple : max_width=150
+- (optional) max_height="0" - The max_height for the images uploaded. Exemple : max_height=150
+- (optional) min_width="0" - The min width for the images uploaded. Exemple : min_width=150. By Default : min_width=0
+- (optional) min_height="0" - The min height for the images uploaded. Exemple : min_height=150. By Default : min_height=0
+- (optional) clean_name="true" - if true, will replace accents, spaces and other spacials caracters by some more clean
+- (optional) dir_path="/uploads/jqueryfu" - the directory used to upload files. Be carefull, use "/" or "\" into Unix or Windows system
+- (optional) dir_url="/uploads/jqueryfu" - the url used to display uploaded files
+- (optional) template="full" - The name of the template. Are allowed : "full", "basic" and all the templates into the "/modules/JQueryFU/templates" directory
 
 Demonstration
 --------------------------------------
