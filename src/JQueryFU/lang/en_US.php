@@ -18,5 +18,7 @@ $lang['help_clean_name'] = 'if true, will replace accents, spaces and other spac
 $lang['help_dir_path'] = 'the directory used to upload files. Be carefull, use "/" or "\" into Unix or Windows system';
 $lang['help_dir_url'] = 'the url used to display uploaded files';
 $lang['help_template'] = 'The name of the template. Are allowed : "full", "basic" and all the templates into the "/modules/JQueryFU/templates" directory';
-
+$lang['moddescription'] = 'You can easily associate this module with FEU and create a different upload platform for each of your user. You can also simply use it as an open upload platform for your visitors with lot of parameters.';
+$lang['postinstall'] = 'Installed with success';
+$lang['really_uninstall'] = 'Are you sure ?';
 ?>

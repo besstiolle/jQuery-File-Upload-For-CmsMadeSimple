@@ -1,6 +1,6 @@
 <?php
 /*
- * jQuery File Upload Plugin PHP Class 5.11
+* jQuery File Upload Plugin PHP Class 5.11.2
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
@@ -61,18 +61,26 @@ class UploadHandler
             )
         );
         if ($options) {
-            $this->options = array_replace_recursive($this->options, $options);
+		
+			//SPECIAL CMSMADESIMPLE FOR PHP 5.2.x
+			if (function_exists('array_replace_recursive')) {
+				$this->options = array_replace_recursive($this->options, $options);
+			} else {
+				$this->options = $this->array_join($this->options, $options);
+			}
+            
         }
     }
 
     protected function getFullUrl() {
-      	return
-    		((isset($_SERVER['HTTPS'])) ? 'https://' : 'http://').
-    		(isset($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'].'@' : '').
-    		(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'].
-    		(isset($_SERVER['HTTPS']) && $_SERVER['SERVER_PORT'] === 443 ||
-    		$_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
-    		substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
+        $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+       return
+     ($https ? 'https://' : 'http://').
+     (!empty($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'].'@' : '').
+     (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'].
+     ($https && $_SERVER['SERVER_PORT'] === 443 ||
+     $_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
+     substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
     }
 
     protected function set_file_delete_url($file) {
@@ -289,7 +297,7 @@ class UploadHandler
       	return $success;
     }
 
-    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index) {
+    protected function handle_file_upload($uploaded_file, $name, $size, $type, $error, $index = null) {
         $file = new stdClass();
         $file->name = $this->trim_file_name($name, $type, $index);
         $file->size = intval($size);
@@ -416,7 +424,6 @@ class UploadHandler
     }
 
     public function delete() {
-      //  trigger_error( "test : start");
         $file_name = isset($_REQUEST['file']) ?
             basename(stripslashes($_REQUEST['file'])) : null;
         $file_path = $this->options['upload_dir'].$file_name;
@@ -425,14 +432,30 @@ class UploadHandler
             foreach($this->options['image_versions'] as $version => $options) {
                 $file = $options['upload_dir'].$file_name;
                 if (is_file($file)) {
-                   // trigger_error( "test : $file");
                     unlink($file);
                 }
             }
         }
-       // trigger_error( "test : end");
         header('Content-type: application/json');
         echo json_encode($success);
     }
+	
+	protected function array_join()
+	{
+		$arrays = func_get_args();
+		$original = array_shift($arrays);
+
+		foreach ($arrays as $array) {
+			foreach ($array as $key => $value) {
+				if (is_array($value)) {
+					$original[$key] = $this->array_join($original[$key], $array[$key]);
+				}
+				else {
+					$original[$key] = $value;
+				}
+			}
+		}
+		return $original;
+	} 
 
 }

@@ -22,7 +22,7 @@ class JQueryFU extends CMSModule
   
   function GetVersion()
   {
-    return '1.0.1';
+    return '1.0.2';
   }
   
   function GetDependencies()
@@ -82,7 +82,7 @@ class JQueryFU extends CMSModule
   
   function SetParameters()
   {
-	$this->RegisterModulePlugin();
+	$this->RegisterModulePlugin(true, false);
     $this->RestrictUnknownParams();
     $this->SetParameterType('accept_file_types',CLEAN_STRING);
     $this->SetParameterType('number',CLEAN_INT);

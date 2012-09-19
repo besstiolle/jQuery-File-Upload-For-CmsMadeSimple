@@ -32,19 +32,6 @@ class CmsUploadHandler extends UploadHandler
 
   }
 
-  /*
-   * Workaround to fix $_SERVER['HTTPS'] value in Cherokee Webserver (Equals to "off" instead of NULL in Apache Webserver)
-   */
-  protected function getFullUrl() {
-        return
-        ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://' : 'http://').
-        (isset($_SERVER['REMOTE_USER']) ? $_SERVER['REMOTE_USER'].'@' : '').
-        (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : ($_SERVER['SERVER_NAME'].
-        (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' && $_SERVER['SERVER_PORT'] === 443 ||
-        $_SERVER['SERVER_PORT'] === 80 ? '' : ':'.$_SERVER['SERVER_PORT']))).
-        substr($_SERVER['SCRIPT_NAME'],0, strrpos($_SERVER['SCRIPT_NAME'], '/'));
-    }
-
    protected function trim_file_name($name, $type, $index){
       $file_name = parent::trim_file_name($name, $type, $index);
       
