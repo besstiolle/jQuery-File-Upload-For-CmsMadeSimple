@@ -118,7 +118,7 @@ class MyFinder
       if(is_dir($dir))
         return;
 
-      mkdir($dir, 0750, true);
+      mkdir($dir, 0755, true);
 
 
     }
