@@ -5,10 +5,66 @@ $lang['help'] = <<<EOT
 		<p>See more on http://blueimp.github.com/jQuery-File-Upload/</p>
 		<h3>How do I use it?</h3>
 		<p>Write into your content : {JQueryFU} </p>
-		<h3>How do I use it ?(Advance usage)</h3>
+		<h3>How do I use it ? (Advance usage)</h3>
 		<p>You can easily associate this module with FEU and create a different upload platform for each of your user</p>
+		<p> Example of code </p>
+		<pre>
+			{if \$ccuser->memberof("Admin")}
+				{JQueryFU template="full" number=100 accept_file_types='/\.(txt|gif|jpe?g|png|psd|pdf)$/i'}
+			{else}
+				{JQueryFU template="basic" number=10 accept_file_types='/\.(gif|jpe?g|png)$/i'}
+			{/if}
+		</pre>
+		<h3>How can i activate the client's side resizing ? (Advance usage)</h3>
+		<p>JQuery File Upload can resize the big pictures BEFORE starting the uploads. To activate this functions, you must modify the file ./modules/JQueryFU/jqfu/js/jquery.fileupload-fp.js and uncomment the code line 42 : </p>
+		<pre>
+			 process: [
+            /*
+                {
+                    action: 'load',
+                    fileTypes: /^image\/(gif|jpeg|png)$/,
+                    maxFileSize: 20000000 // 20MB
+                },
+                {
+                    action: 'resize',
+                    maxWidth: 1920,
+                    maxHeight: 1200,
+                    minWidth: 800,
+                    minHeight: 600
+                },
+                {
+                    action: 'save'
+                }
+            */
+            ],
+		</pre>
+		
+		<p>to</p>
+		
+		<pre>
+			 process: [
+            
+                {
+                    action: 'load',
+                    fileTypes: /^image\/(gif|jpeg|png)$/,
+                    maxFileSize: 20000000 // 20MB
+                },
+                {
+                    action: 'resize',
+                    maxWidth: 1920,
+                    maxHeight: 1200,
+                    minWidth: 800,
+                    minHeight: 600
+                },
+                {
+                    action: 'save'
+                }
+            
+            ],
+		</pre>
+		<p> It's very simple but you must be aware that theses changes will be lost on the next upgrade of my module. I don't have other solution. Sorry for that. BTW If you have a solution, don't hesite to contact me !</p>
 EOT;
-$lang['help_accept_file_types'] = 'Regex of the files extensions that are allowed.';
+$lang['help_accept_file_types'] = 'Regex of the files extensions that are allowed. By Default : \'/\.(txt|gif|jpe?g|png)$/i\'';
 $lang['help_number'] = 'Number of files that can be in the uploads directory at the same time';
 $lang['help_max_width'] = 'The max width for the images uploaded. Exemple : max_width=150';
 $lang['help_max_height'] = 'The max_height for the images uploaded. Exemple : max_height=150';

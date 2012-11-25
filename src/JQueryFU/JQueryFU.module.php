@@ -22,7 +22,7 @@ class JQueryFU extends CMSModule
   
   function GetVersion()
   {
-    return '1.0.4';
+    return '1.0.5';
   }
   
   function GetDependencies()
@@ -72,7 +72,7 @@ class JQueryFU extends CMSModule
   
   function VisibleToAdminUser()
   {
-    return true;
+    return false;
   }
   
   function MinimumCMSVersion()
@@ -80,7 +80,7 @@ class JQueryFU extends CMSModule
     return "1.10.0";
   }
   
-  function SetParameters()
+  function InitializeFrontend()
   {
 	$this->RegisterModulePlugin(true, false);
     $this->RestrictUnknownParams();
@@ -98,7 +98,7 @@ class JQueryFU extends CMSModule
   
   	function InitializeAdmin()
 	{
-	  $this->CreateParameter('accept_file_types', "'/\.(txt|gif|jpe?g|png)$/i'", $this->Lang('help_accept_file_types'));
+	  $this->CreateParameter('accept_file_types', "/\.(txt|gif|jpe?g|png)$/i", $this->Lang('help_accept_file_types'));
 	  $this->CreateParameter('number', 99999, $this->lang('help_number'));
 	  $this->CreateParameter('max_width', 0, $this->lang('help_max_width'));
 	  $this->CreateParameter('max_height', 0, $this->lang('help_max_height'));
@@ -117,12 +117,12 @@ class JQueryFU extends CMSModule
 
 	function LazyLoadFrontend()
 	{
-	  return TRUE;
+	  return FALSE;
 	}
 
 	function LazyLoadAdmin()
 	{
-	  return TRUE;
+	  return FALSE;
 	}
 
   function InstallPostMessage()
