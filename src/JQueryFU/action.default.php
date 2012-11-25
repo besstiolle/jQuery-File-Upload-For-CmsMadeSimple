@@ -8,9 +8,9 @@ $myFinder = new MyFinder($config['root_path'].DIRECTORY_SEPARATOR.'tmp'.DIRECTOR
 $parameters = array();
 
 //By default : '/\.(txt|gif|jpe?g|png)$/i'
-if(isset($params['regex_types']))
+if(isset($params['accept_file_types']))
 {
-	$parameters['accept_file_types'] = html_entity_decode($params['regex_types'],ENT_QUOTES,'UTF-8');
+	$parameters['accept_file_types'] = html_entity_decode($params['accept_file_types'],ENT_QUOTES,'UTF-8');
 }
 //By default : null
 if(isset($params['number']))

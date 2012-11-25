@@ -22,7 +22,7 @@ class JQueryFU extends CMSModule
   
   function GetVersion()
   {
-    return '1.0.3';
+    return '1.0.4';
   }
   
   function GetDependencies()
@@ -99,7 +99,7 @@ class JQueryFU extends CMSModule
   	function InitializeAdmin()
 	{
 	  $this->CreateParameter('accept_file_types', "'/\.(txt|gif|jpe?g|png)$/i'", $this->Lang('help_accept_file_types'));
-	  $this->CreateParameter('number', 99999, $this->lang('help_max_number_of_files'));
+	  $this->CreateParameter('number', 99999, $this->lang('help_number'));
 	  $this->CreateParameter('max_width', 0, $this->lang('help_max_width'));
 	  $this->CreateParameter('max_height', 0, $this->lang('help_max_height'));
 	  $this->CreateParameter('min_width', 0, $this->lang('help_min_width'));

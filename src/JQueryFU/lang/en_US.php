@@ -9,7 +9,7 @@ $lang['help'] = <<<EOT
 		<p>You can easily associate this module with FEU and create a different upload platform for each of your user</p>
 EOT;
 $lang['help_accept_file_types'] = 'Regex of the files extensions that are allowed.';
-$lang['help_max_number_of_files'] = 'Number of files that can be in the uploads directory at the same time';
+$lang['help_number'] = 'Number of files that can be in the uploads directory at the same time';
 $lang['help_max_width'] = 'The max width for the images uploaded. Exemple : max_width=150';
 $lang['help_max_height'] = 'The max_height for the images uploaded. Exemple : max_height=150';
 $lang['help_min_width'] = 'The min width for the images uploaded. Exemple : min_width=150. By Default : min_width=0';
