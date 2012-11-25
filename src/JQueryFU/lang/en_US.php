@@ -8,7 +8,7 @@ $lang['help'] = <<<EOT
 		<h3>How do I use it ? (Advance usage)</h3>
 		<p>You can easily associate this module with FEU and create a different upload platform for each of your user</p>
 		<p> Example of code </p>
-		<pre>
+		<pre style="margin: 5px; background-color: rgb(71, 68, 68); color: rgb(2, 187, 0); padding: 5px;">
 			{if \$ccuser->memberof("Admin")}
 				{JQueryFU template="full" number=100 accept_file_types='/\.(txt|gif|jpe?g|png|psd|pdf)$/i'}
 			{else}
@@ -16,9 +16,9 @@ $lang['help'] = <<<EOT
 			{/if}
 		</pre>
 		<h3>How can i activate the client's side resizing ? (Advance usage)</h3>
-		<p>JQuery File Upload can resize the big pictures BEFORE starting the uploads. To activate this functions, you must modify the file ./modules/JQueryFU/jqfu/js/jquery.fileupload-fp.js and uncomment the code line 42 : </p>
-		<pre>
-			 process: [
+		<p>JQuery File Upload can resize the big pictures BEFORE starting the uploads. To activate this function, you must modify the file ./modules/JQueryFU/jqfu/js/jquery.fileupload-fp.js and uncomment the code line 42 : </p>
+		<pre style="margin: 5px; background-color: rgb(71, 68, 68); color: rgb(2, 187, 0); padding: 5px;">
+              process: [
             /*
                 {
                     action: 'load',
@@ -41,8 +41,8 @@ $lang['help'] = <<<EOT
 		
 		<p>to</p>
 		
-		<pre>
-			 process: [
+		<pre style="margin: 5px; background-color: rgb(71, 68, 68); color: rgb(2, 187, 0); padding: 5px;">
+              process: [
             
                 {
                     action: 'load',
@@ -62,7 +62,7 @@ $lang['help'] = <<<EOT
             
             ],
 		</pre>
-		<p> It's very simple but you must be aware that theses changes will be lost on the next upgrade of my module. I don't have other solution. Sorry for that. BTW If you have a solution, don't hesite to contact me !</p>
+		<p> It's very simple but <span style="color:#F00">you must be aware that theses changes will be lost on the next upgrade of my module</span>. I don't have other solution. Sorry for that. BTW If you have a solution, don't hesite to contact me !</p>
 EOT;
 $lang['help_accept_file_types'] = 'Regex of the files extensions that are allowed. By Default : \'/\.(txt|gif|jpe?g|png)$/i\'';
 $lang['help_number'] = 'Number of files that can be in the uploads directory at the same time';
