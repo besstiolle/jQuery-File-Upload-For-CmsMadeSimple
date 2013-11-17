@@ -1,4 +1,10 @@
 <?php
+
+$lang['title_template'] = 'Templates';
+$lang['heading_display'] = 'Edit the templates';
+$lang['title_display'] = 'Main Template';
+$lang['text_display_edit'] = 'Edit the template';
+
 $lang['help'] = <<<EOT
 		<h3>What does this do?</h3>
 		<p>This module provides an integration of the great plugin JQuery File Upload into the great Cms Made Simple</p>

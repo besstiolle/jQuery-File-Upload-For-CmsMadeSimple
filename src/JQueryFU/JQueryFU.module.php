@@ -1,8 +1,10 @@
 <?php
 
 
+define("TMPL_PREFIX_DISPLAY" , "display" );
+define("DEFAULT_DISPLAY_TMPL_PREF_NAME",'current_'.TMPL_PREFIX_DISPLAY.'_template');
 
-class JQueryFU extends CMSModule
+class JQueryFU extends CGExtensions
 {
 
   function __construct()
@@ -22,12 +24,12 @@ class JQueryFU extends CMSModule
   
   function GetVersion()
   {
-    return '1.0.5';
+    return '1.1.0';
   }
   
   function GetDependencies()
   {
-    return array();
+    return array('CGExtensions'=>'1.37');
   }
  
   function GetHelp()
@@ -57,7 +59,7 @@ class JQueryFU extends CMSModule
   
   function HasAdmin()
   {
-    return false;
+    return true;
   }
 
   function GetAdminSection()
@@ -72,7 +74,7 @@ class JQueryFU extends CMSModule
   
   function VisibleToAdminUser()
   {
-    return false;
+    return $this->CheckPermission('Use TagCloud');
   }
   
   function MinimumCMSVersion()
